@@ -6,6 +6,12 @@ export async function onRequest(context) {
   const { request } = context;
 
   const url = new URL(request.url);
+
+  // Acesso direto à raiz /profissional — redireciona para a home
+  if (url.pathname === '/profissional' || url.pathname === '/profissional/') {
+    return Response.redirect('https://foto.asgrowhub.com', 301);
+  }
+
   url.hostname = 'hsmzbjlo.sam.stape.io';
 
   const newRequest = new Request(url.toString(), {
