@@ -969,6 +969,143 @@
       .hero-visual { contain: layout; }
       .portfolio-marquee-wrapper { contain: layout style; }
     }
+
+    /* === PLANOS DE PREÇO — 3 cards ===*/
+    .plans-section {
+      padding: 5rem var(--space-xl);
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 960px;
+      margin-top: 2.5rem;
+      align-items: start;
+    }
+    .plan-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.5rem;
+      display: flex; flex-direction: column; gap: 0;
+      position: relative;
+      transition: var(--transition-spring);
+    }
+    .plan-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.08);
+    }
+    .plan-card.plan-featured {
+      border: 2px solid var(--accent);
+      background: linear-gradient(160deg, rgba(196,232,50,0.06) 0%, var(--glass-bg) 60%);
+      box-shadow: 0 12px 40px rgba(196,232,50,0.12);
+    }
+    .plan-popular-badge {
+      position: absolute;
+      top: -14px; left: 50%; transform: translateX(-50%);
+      background: linear-gradient(135deg, #d4f54a 0%, #c8e83a 100%);
+      color: var(--primary-text);
+      font-size: 0.72rem; font-weight: 800;
+      padding: 0.28rem 1rem;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(196,232,50,0.35);
+    }
+    .plan-name {
+      font-family: var(--font-heading);
+      font-size: 1.15rem; font-weight: 800;
+      color: var(--text-color);
+      margin-bottom: 0.2rem;
+      margin-top: 0.5rem;
+    }
+    .plan-featured .plan-name { color: var(--accent); }
+    .plan-desc {
+      font-size: 0.78rem; color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      font-weight: 500;
+    }
+    .plan-price-area { margin-bottom: 1.25rem; }
+    .plan-price-old {
+      font-size: 0.8rem; color: var(--text-muted);
+      text-decoration: line-through; display: block;
+      margin-bottom: 0.1rem;
+    }
+    .plan-price {
+      font-family: var(--font-heading);
+      font-size: 2rem; font-weight: 800;
+      color: var(--text-color);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .plan-featured .plan-price { color: var(--accent); }
+    .plan-features {
+      list-style: none; padding: 0; margin: 0 0 1.5rem;
+      display: flex; flex-direction: column; gap: 0.55rem;
+    }
+    .plan-features li {
+      font-size: 0.82rem; color: var(--text-muted);
+      display: flex; align-items: flex-start; gap: 0.4rem;
+    }
+    .plan-features li.feat-yes { color: var(--text-color); font-weight: 500; }
+    .plan-features li.feat-yes::before {
+      content: "✓";
+      color: var(--accent); font-weight: 800; flex-shrink: 0;
+    }
+    .plan-features li.feat-no { color: var(--text-muted); opacity: 0.55; }
+    .plan-features li.feat-no::before {
+      content: "—";
+      color: var(--text-muted); flex-shrink: 0;
+    }
+    .btn-plan {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.25rem;
+      border-radius: var(--radius-full);
+      font-weight: 700; font-size: 0.88rem;
+      text-decoration: none;
+      border: 1.5px solid var(--glass-border);
+      color: var(--text-color);
+      background: transparent;
+      transition: var(--transition-spring);
+      touch-action: manipulation;
+      margin-top: auto;
+    }
+    .btn-plan:hover {
+      background: var(--glass-border);
+      transform: translateY(-2px);
+    }
+    .btn-plan.btn-plan-featured {
+      background: linear-gradient(135deg, #d4f54a 0%, #c8e83a 55%, #b8d930 100%);
+      border-color: transparent;
+      color: var(--primary-text);
+      box-shadow: 0 6px 20px rgba(196,232,50,0.35);
+    }
+    .btn-plan.btn-plan-featured:hover {
+      box-shadow: 0 10px 28px rgba(196,232,50,0.5);
+      transform: translateY(-2px);
+    }
+    .plan-guarantee {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 0.72rem; color: var(--text-muted);
+      margin-top: 0.75rem; justify-content: center;
+    }
+    @media (max-width: 768px) {
+      .plans-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+      }
+      .plan-card.plan-featured { order: -1; }
+      .plans-section { padding: 4rem 1.25rem; }
+    }
+    @media (max-width: 390px) {
+      .plans-section { padding: 3.5rem 1rem; }
+      .plan-card { padding: 1.75rem 1.25rem; }
+    }
   </style>
 </head>
 
@@ -1633,42 +1770,104 @@
     </section>
 
     <!-- ================================================
-         FINAL CTA — ACTION
+         PLANOS DE PREÇO — 3 opções
          ================================================ -->
-    <section class="contact" id="contato" aria-labelledby="cta-title">
-      <div class="glass-card cta-box reveal">
-        <div class="section-label">Oferta por Tempo Limitado</div>
-        <h2 id="cta-title">Aja agora.<br>Sua imagem não pode esperar.</h2>
-        <p style="margin-bottom:0;">
-          Mande de 3 a 5 fotos pelo WhatsApp agora mesmo e receba 10 retratos profissionais que vão alavancar
-          suas oportunidades. Em até <strong style="color:var(--accent);">30 minutos.</strong>
-        </p>
-
-        <div class="pricing-display">
-          <span class="price-old">de R$ 297,00</span>
-          <span class="price-badge">R$ 97,00</span>
-          <span class="price-qty">· 10 fotos incluídas</span>
-        </div>
-
-        <div class="guarantee-badge" role="note">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-          Garantia incondicional — refazemos se não gostar
-        </div>
-
-        <a href="https://wa.me/5518981925078?text=Ol%C3%A1%2C+quero+fazer+minha+foto+profissional+com+IA%21"
-          target="_blank" rel="noopener noreferrer" class="btn-whatsapp"
-          style="width:100%; justify-content:center;" aria-label="Solicitar via WhatsApp"
-          data-gtm-event="whatsapp_click" data-gtm-location="cta_section" data-gtm-text="Solicitar via WhatsApp">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-          </svg>
-          Solicitar via WhatsApp
-        </a>
-
-        <p class="cta-sub-note">
-          ⚡ Entrega em até 30 minutos · 3 a 5 fotos pelo WhatsApp · 100% seguro · ASGrowHub
-        </p>
+    <section class="plans-section" id="contato" aria-labelledby="planos-title">
+      <div class="section-header text-center reveal" style="max-width:600px;">
+        <div class="section-label">Escolha seu plano</div>
+        <h2 id="planos-title">Invista na sua<br><span style="color:var(--accent)">imagem profissional</span></h2>
+        <p>Mande 3 a 5 selfies pelo WhatsApp e receba suas fotos em até 30 minutos.</p>
       </div>
+
+      <div class="plans-grid">
+
+        <!-- STARTER -->
+        <div class="plan-card reveal">
+          <p class="plan-name">Starter</p>
+          <p class="plan-desc">Para experimentar sem risco</p>
+          <div class="plan-price-area">
+            <span class="plan-price-old">de R$ 97,00</span>
+            <div class="plan-price">R$ 47</div>
+          </div>
+          <ul class="plan-features">
+            <li class="feat-yes">5 fotos profissionais</li>
+            <li class="feat-yes">1 estilo (corporativo ou casual)</li>
+            <li class="feat-yes">Entrega em 30 min</li>
+            <li class="feat-yes">Garantia incondicional</li>
+            <li class="feat-no">Fundos variados</li>
+            <li class="feat-no">Uso comercial</li>
+          </ul>
+          <a href="https://wa.me/5518981925078?text=Ol%C3%A1%2C+quero+o+Plano+Starter+-+5+fotos+por+R%2447%21"
+            target="_blank" rel="noopener noreferrer" class="btn-plan"
+            data-gtm-event="whatsapp_click" data-gtm-location="planos" data-gtm-text="Plano Starter">
+            Começar agora
+          </a>
+          <p class="plan-guarantee">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Garantia incondicional
+          </p>
+        </div>
+
+        <!-- PROFISSIONAL (destaque) -->
+        <div class="plan-card plan-featured reveal reveal-delay-1">
+          <div class="plan-popular-badge">⭐ Mais Escolhido</div>
+          <p class="plan-name">Profissional</p>
+          <p class="plan-desc">Para resultados que impressionam</p>
+          <div class="plan-price-area">
+            <span class="plan-price-old">de R$ 297,00</span>
+            <div class="plan-price">R$ 97</div>
+          </div>
+          <ul class="plan-features">
+            <li class="feat-yes">10 fotos profissionais</li>
+            <li class="feat-yes">2 estilos (executivo + casual)</li>
+            <li class="feat-yes">Entrega em 30 min</li>
+            <li class="feat-yes">Garantia incondicional</li>
+            <li class="feat-yes">Uso em redes sociais incluso</li>
+            <li class="feat-no">Uso comercial</li>
+          </ul>
+          <a href="https://wa.me/5518981925078?text=Ol%C3%A1%2C+quero+o+Plano+Profissional+-+10+fotos+por+R%2497%21"
+            target="_blank" rel="noopener noreferrer" class="btn-plan btn-plan-featured"
+            data-gtm-event="whatsapp_click" data-gtm-location="planos" data-gtm-text="Plano Profissional">
+            Quero este plano
+          </a>
+          <p class="plan-guarantee">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Garantia incondicional
+          </p>
+        </div>
+
+        <!-- EXECUTIVE -->
+        <div class="plan-card reveal reveal-delay-2">
+          <p class="plan-name">Executive</p>
+          <p class="plan-desc">Para máximo impacto profissional</p>
+          <div class="plan-price-area">
+            <span class="plan-price-old">de R$ 497,00</span>
+            <div class="plan-price">R$ 197</div>
+          </div>
+          <ul class="plan-features">
+            <li class="feat-yes">25 fotos profissionais</li>
+            <li class="feat-yes">4+ estilos e looks</li>
+            <li class="feat-yes">Fundos variados</li>
+            <li class="feat-yes">Garantia incondicional</li>
+            <li class="feat-yes">Uso em redes sociais incluso</li>
+            <li class="feat-yes">Uso comercial incluso</li>
+          </ul>
+          <a href="https://wa.me/5518981925078?text=Ol%C3%A1%2C+quero+o+Plano+Executive+-+25+fotos+por+R%24197%21"
+            target="_blank" rel="noopener noreferrer" class="btn-plan"
+            data-gtm-event="whatsapp_click" data-gtm-location="planos" data-gtm-text="Plano Executive">
+            Quero o Executive
+          </a>
+          <p class="plan-guarantee">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Garantia incondicional
+          </p>
+        </div>
+
+      </div>
+
+      <p class="cta-sub-note" style="text-align:center; margin-top: 2rem;">
+        ⚡ Entrega em até 30 min · 3 a 5 fotos pelo WhatsApp · 100% seguro · ASGrowHub
+      </p>
     </section>
 
   </main>
