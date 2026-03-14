@@ -42,11 +42,11 @@
   <!-- Preload LCP image -->
   <link rel="preload" as="image" href="assets/freepik__professional-highresolution-studio-portrait-in-the__22823.webp" fetchpriority="high">
 
-  <!-- Google Tag Manager -->
+  <!-- Google Tag Manager (server-side via foto.asgrowhub.com/profissional) -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  'https://foto.asgrowhub.com/profissional/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-NWM44LLB');</script>
   <!-- End Google Tag Manager -->
 
@@ -974,7 +974,7 @@
 
 <body>
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWM44LLB"
+  <noscript><iframe src="https://foto.asgrowhub.com/profissional/ns.html?id=GTM-NWM44LLB"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
@@ -1928,6 +1928,11 @@
        GTM — dataLayer & Custom Event Tracking
        ===================================================== */
     window.dataLayer = window.dataLayer || [];
+
+    // Configuração server-side: envia hits GA4 pelo container próprio (first-party)
+    window.dataLayer.push({
+      'gtm.transportUrl': 'https://foto.asgrowhub.com/profissional'
+    });
 
     // 1. CTA & WhatsApp click tracking (via data-gtm-event attributes)
     document.querySelectorAll('[data-gtm-event]').forEach(function(el) {
