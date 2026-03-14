@@ -1,6 +1,8 @@
 /**
  * Cloudflare Pages Function — Proxy server-side GTM (Stape)
- * Rota: foto.asgrowhub.com/profissional/*  →  hsmzbjlo.sam.stape.io/profissional/*
+ * Rota: foto.asgrowhub.com/profissional/*  →  trawchqt.sam.stape.io/*
+ * O prefixo /profissional é removido antes de encaminhar para a Stape,
+ * pois a Stape está configurada com custom domain foto.asgrowhub.com (raiz).
  */
 export async function onRequest(context) {
   const { request } = context;
@@ -12,7 +14,9 @@ export async function onRequest(context) {
     return Response.redirect('https://foto.asgrowhub.com', 301);
   }
 
-  url.hostname = 'hsmzbjlo.sam.stape.io';
+  // Remove o prefixo /profissional antes de encaminhar
+  url.hostname = 'trawchqt.sam.stape.io';
+  url.pathname = url.pathname.replace(/^\/profissional/, '') || '/';
 
   const newRequest = new Request(url.toString(), {
     method: request.method,
