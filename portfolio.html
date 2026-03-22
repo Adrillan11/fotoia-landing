@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio | FotoIA by ASGrowHub</title>
+    <meta name="description" content="Veja os resultados reais gerados pela FotoIA. Retratos profissionais com Inteligência Artificial — Corporativo, Editorial e Lifestyle.">
+    <link rel="canonical" href="https://foto.asgrowhub.com/portfolio" />
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:url" content="https://foto.asgrowhub.com/portfolio">
+    <meta property="og:title" content="Portfólio FotoIA — Resultados Reais">
+    <meta property="og:description" content="Retratos profissionais gerados por IA. Veja antes e depois de clientes reais.">
+    <meta property="og:image" content="https://foto.asgrowhub.com/assets/og-image.jpg">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23C9A84C'/%3E%3Cpath d='M6 11h3l2-3h10l2 3h3a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V13a2 2 0 0 1 2-2z' fill='none' stroke='%23070707' stroke-width='2' stroke-linejoin='round'/%3E%3Ccircle cx='16' cy='18' r='4' fill='none' stroke='%23070707' stroke-width='2'/%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ── BASE: sem overflow horizontal ── */
+        html, body { overflow-x: hidden; }
+
+        /* ── FILTER ── */
+        .filters-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.65rem;
+            padding: 5.5rem 1rem 1.5rem;
+        }
+
+        .filter-bar {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .filter-btn {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 0.48rem 1.2rem;
+            border: 1.5px solid rgba(0,0,0,0.12);
+            border-radius: 100px;
+            background: transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+        .filter-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+            box-shadow: 0 4px 14px rgba(183,204,83,0.3);
+        }
+
+        .filter-btn.gender-btn.active {
+            background: #1a1a2e;
+            border-color: #1a1a2e;
+            color: #fff;
+        }
+
+        /* ── MASONRY CONTAINER ── */
+        .masonry-wrap {
+            padding: 0 1rem 5rem;
+            max-width: 1380px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        #masonryGrid { position: relative; }
+
+        /* ── PHOTO CARD ── */
+        .photo-card {
+            position: absolute;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s cubic-bezier(.34,1.56,.64,1),
+                        box-shadow 0.3s ease,
+                        opacity 0.3s ease;
+            background: #ebebeb;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .photo-card.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.95);
+        }
+
+        .photo-card:hover {
+            transform: translateY(-5px) scale(1.015);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.14);
+            z-index: 2;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: filter 0.3s ease;
+        }
+
+        .photo-card:hover img { filter: brightness(0.78); }
+
+        /* ── OVERLAY (desktop: hover / mobile: sempre visível) ── */
+        .card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.68) 0%, transparent 55%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 0.8rem;
+            gap: 0.25rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .photo-card:hover .card-overlay { opacity: 1; }
+
+        /* no touch: overlay sempre aparece levemente */
+        @media (hover: none) {
+            .card-overlay {
+                opacity: 1;
+                background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 45%);
+            }
+            .photo-card:hover { transform: none; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+            .photo-card:hover img { filter: none; }
+        }
+
+        .card-category {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            background: var(--accent);
+            color: #1a1a1a;
+            padding: 0.18rem 0.55rem;
+            border-radius: 100px;
+            display: inline-block;
+            width: fit-content;
+        }
+
+        .card-label {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.2;
+        }
+
+        .card-sublabel {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.65);
+        }
+
+        /* ── LIGHTBOX ── */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0,0,0,0.96);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: env(safe-area-inset-top, 1rem) 1rem env(safe-area-inset-bottom, 1rem);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.22s ease;
+        }
+
+        .lightbox.open { opacity: 1; pointer-events: all; }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 82vh;
+            border-radius: 12px;
+            object-fit: contain;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: max(1.2rem, env(safe-area-inset-top, 1.2rem));
+            right: 1.2rem;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: #fff;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: #fff;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-prev { left: 0.8rem; }
+        .lightbox-next { right: 0.8rem; }
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: max(1.5rem, env(safe-area-inset-bottom, 1.5rem));
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: rgba(255,255,255,0.7);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.82rem;
+            white-space: nowrap;
+        }
+
+        /* ── CTA ── */
+        .portfolio-cta {
+            border-top: 1px solid rgba(0,0,0,0.07);
+            padding: 4rem 1.5rem;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(183,204,83,0.05) 0%, transparent 100%);
+        }
+
+        .portfolio-cta h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1.6rem, 5vw, 2.4rem);
+            font-weight: 800;
+            margin-bottom: 0.6rem;
+        }
+
+        .portfolio-cta p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            max-width: 460px;
+            margin: 0 auto 1.8rem;
+            line-height: 1.65;
+        }
+
+        /* ── SKELETON ── */
+        .photo-card .skeleton {
+            background: linear-gradient(90deg, #e8e8e8 25%, #f2f2f2 50%, #e8e8e8 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.4s infinite;
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .photo-card.loaded .skeleton { opacity: 0; pointer-events: none; }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* ── RESPONSIVE 719px (tablet/mobile) ── */
+        @media (max-width: 719px) {
+            .masonry-wrap { padding: 0 0.25rem 4rem; }
+            .filters-wrap { padding: 5rem 0.5rem 1.2rem; gap: 0.5rem; }
+            .filter-btn { font-size: 0.78rem; padding: 0.42rem 1rem; }
+        }
+
+        /* ── RESPONSIVE 430px (iPhone 14 Pro Max e menores) ── */
+        @media (max-width: 430px) {
+            .filters-wrap {
+                padding: calc(env(safe-area-inset-top, 0px) + 4.2rem) 0.4rem 1rem;
+                gap: 0.4rem;
+            }
+            .filter-bar { gap: 0.28rem; }
+            .filter-btn { font-size: 0.72rem; padding: 0.38rem 0.8rem; }
+            .masonry-wrap { padding: 0 0.2rem 3.5rem; }
+            .photo-card { border-radius: 10px; }
+            .card-label { font-size: 0.75rem; }
+            .card-sublabel { display: none; }
+            .portfolio-cta { padding: 3rem 1.2rem; }
+            .lightbox-prev, .lightbox-next { display: none; }
+            .lightbox img { border-radius: 8px; max-height: 78vh; }
+            .lightbox-caption { font-size: 0.75rem; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div class="glow glow-3"></div>
+
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu" id="mobileMenu">
+        <a href="index.html#solucao" onclick="closeMobileMenu()">A Solução</a>
+        <a href="portfolio.html" onclick="closeMobileMenu()">Portfólio</a>
+        <a href="index.html#tecnologia" onclick="closeMobileMenu()">Tecnologia</a>
+        <a href="index.html#como-funciona" onclick="closeMobileMenu()">Como Funciona</a>
+        <a href="index.html#faq" onclick="closeMobileMenu()">FAQ</a>
+        <a href="index.html#contato" onclick="closeMobileMenu()" style="color: var(--accent);">Solicitar Orçamento</a>
+    </nav>
+
+    <header>
+        <nav class="glass-nav">
+            <a href="index.html" class="logo" style="text-decoration:none;">Foto<span>IA</span></a>
+            <div class="nav-links">
+                <a href="index.html#solucao">A Solução</a>
+                <a href="portfolio.html" style="color:var(--accent); font-weight:600;">Portfólio</a>
+                <a href="index.html#tecnologia">Tecnologia</a>
+                <a href="index.html#faq">FAQ</a>
+                <a href="index.html#contato" class="cta-button-nav">Solicitar Orçamento</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMobileMenu()">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- FILTERS -->
+        <div class="filters-wrap">
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="corporativo">Corporativo</button>
+                <button class="filter-btn" data-filter="editorial">Editorial</button>
+                <button class="filter-btn" data-filter="lifestyle">Lifestyle</button>
+            </div>
+            <div class="filter-bar gender-bar">
+                <button class="filter-btn gender-btn active" data-gender="all">Todos os géneros</button>
+                <button class="filter-btn gender-btn" data-gender="feminino">♀ Feminino</button>
+                <button class="filter-btn gender-btn" data-gender="masculino">♂ Masculino</button>
+            </div>
+        </div>
+
+        <!-- MASONRY GRID -->
+        <div class="masonry-wrap">
+            <div id="masonryGrid">
+
+                <div class="photo-card" data-category="corporativo" data-gender="feminino" data-label="Perfil LinkedIn" data-sublabel="Executiva · Autoridade">
+                    <div class="skeleton"></div>
+                    <img src="assets/portfolio/exec-feminina-01.webp" loading="lazy" alt="Retrato executiva IA - perfil LinkedIn">
+                    <div class="card-overlay">
+                        <span class="card-category">Corporativo</span>
+                        <span class="card-label">Perfil LinkedIn</span>
+                        <span class="card-sublabel">Executiva · Autoridade</span>
+                    </div>
+                </div>
+
+                <div class="photo-card" data-category="editorial" data-gender="feminino" data-label="Retrato Editorial" data-sublabel="Dramático · Intensa">
+                    <div class="skeleton"></div>
+                    <img src="assets/portfolio/editorial-01.webp" loading="lazy" alt="Retrato editorial dramático IA">
+                    <div class="card-overlay">
+                        <span class="card-category">Editorial</span>
+                        <span class="card-label">Retrato Editorial</span>
+                        <span class="card-sublabel">Dramático · Intensa</span>
+                    </div>
+                </div>
+
+                <div class="photo-card" data-category="lifestyle" data-gender="feminino" data-label="Lifestyle Elegante" data-sublabel="Ao Ar Livre · Natural">
+                    <div class="skeleton"></div>
+                    <img src="assets/portfolio/lifestyle-02.webp" loading="lazy" alt="Retrato lifestyle elegante IA">
+                    <div class="card-overlay">
+                        <span class="card-category">Lifestyle</span>
+                        <span class="card-label">Lifestyle Elegante</span>
+                        <span class="card-sublabel">Ao Ar Livre · Natural</span>
+                    </div>
+                </div>
+
+                <div class="photo-card" data-category="corporativo" data-gender="feminino" data-label="Executiva Sênior" data-sublabel="Elegância · Experiência">
+                    <div class="skeleton"></div>
+                    <img src="assets/portfolio/exec-feminina-02.webp" loading="lazy" alt="Retrato executiva sênior IA">
+                    <div class="card-overlay">
+                        <span class="card-category">Corporativo</span>
+                        <span class="card-label">Executiva Sênior</span>
+                        <span class="card-sublabel">Elegância · Experiência</span>
+                    </div>
+                </div>
+
+                <div class="photo-card" data-category="editorial" data-gender="feminino" data-label="Retrato de Autoridade" data-sublabel="Editorial · Liderança">
+                    <div class="skeleton"></div>
+                    <img src="assets/portfolio/editorial-02.webp" loading="lazy" alt="Retrato de autoridade editorial IA">
+                    <div class="card-overlay">
+                        <span class="card-category">Editorial</span>
+                        <span class="card-label">Retrato de Autoridade</span>
+                        <span class="card-sublabel">Editorial · Liderança</span>
+                    </div>
+                </div>
+
+                <div class="photo-card" data-category="corporativo" data-gender="feminino" data-label="Liderança Executiva" data-sublabel="Assertiva · Confiança">
+                    <div class="skeleton"></div>
+                    <img src="assets/portfolio/exec-feminina-03.webp" loading="lazy" alt="Retrato liderança executiva IA">
+                    <div class="card-overlay">
+                        <span class="card-category">Corporativo</span>
+                        <span class="card-label">Liderança Executiva</span>
+                        <span class="card-sublabel">Assertiva · Confiança</span>
+                    </div>
+                </div>
+
+                <div class="photo-card" data-category="corporativo" data-gender="masculino" data-label="Executivo" data-sublabel="CEO · Empreendedor">
+                    <div class="skeleton"></div>
+                    <img src="assets/portfolio/exec-masculino-01.webp" loading="lazy" alt="Retrato executivo masculino IA">
+                    <div class="card-overlay">
+                        <span class="card-category">Corporativo</span>
+                        <span class="card-label">Executivo</span>
+                        <span class="card-sublabel">CEO · Empreendedor</span>
+                    </div>
+                </div>
+
+                <div class="photo-card" data-category="lifestyle" data-gender="feminino" data-label="Lifestyle Natural" data-sublabel="Ao Ar Livre · Descontraído">
+                    <div class="skeleton"></div>
+                    <img src="assets/portfolio/lifestyle-01.webp" loading="lazy" alt="Retrato lifestyle natural IA">
+                    <div class="card-overlay">
+                        <span class="card-category">Lifestyle</span>
+                        <span class="card-label">Lifestyle Natural</span>
+                        <span class="card-sublabel">Ao Ar Livre · Descontraído</span>
+                    </div>
+                </div>
+
+                <div class="photo-card" data-category="corporativo" data-gender="masculino" data-label="Estúdio Profissional" data-sublabel="Masculino · Jovem Liderança">
+                    <div class="skeleton"></div>
+                    <img src="assets/portfolio/exec-masculino-02.webp" loading="lazy" alt="Retrato estúdio masculino IA">
+                    <div class="card-overlay">
+                        <span class="card-category">Corporativo</span>
+                        <span class="card-label">Estúdio Profissional</span>
+                        <span class="card-sublabel">Masculino · Jovem Liderança</span>
+                    </div>
+                </div>
+
+                <div class="photo-card" data-category="lifestyle" data-gender="feminino" data-label="Lifestyle Noturno" data-sublabel="Elegante · Icônico">
+                    <div class="skeleton"></div>
+                    <img src="assets/portfolio/lifestyle-03.webp" loading="lazy" alt="Retrato lifestyle noturno IA">
+                    <div class="card-overlay">
+                        <span class="card-category">Lifestyle</span>
+                        <span class="card-label">Lifestyle Noturno</span>
+                        <span class="card-sublabel">Elegante · Icônico</span>
+                    </div>
+                </div>
+
+                <div class="photo-card" data-category="corporativo" data-gender="casal" data-label="Ensaio em Casal" data-sublabel="Identidade · Presença">
+                    <div class="skeleton"></div>
+                    <img src="assets/portfolio/casal-01.webp" loading="lazy" alt="Ensaio em casal IA">
+                    <div class="card-overlay">
+                        <span class="card-category">Corporativo</span>
+                        <span class="card-label">Ensaio em Casal</span>
+                        <span class="card-sublabel">Identidade · Presença</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <section class="portfolio-cta">
+            <h2>Faça a sua agora.</h2>
+            <p>Mande suas fotos pelo WhatsApp e receba retratos profissionais em até 24 horas.</p>
+            <a href="https://wa.me/5518981925078?text=Ol%C3%A1%2C+quero+fazer+minha+foto+profissional+com+IA%21"
+                target="_blank" rel="noopener" class="cta-button-whatsapp">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+                Falar no WhatsApp
+            </a>
+        </section>
+    </main>
+
+    <footer class="glass-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">Foto<span>IA</span></div>
+                <span class="brand-sub">by ASGrowHub · foto.asgrowhub.com</span>
+            </div>
+            <p style="font-size:0.85rem; margin:0;">&copy; 2026 ASGrowHub. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Voltar ao início">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+    </a>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">&#x2715;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8592;</button>
+        <img src="" alt="" id="lightboxImg">
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">&#8594;</button>
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
+    <!-- Sticky Mobile CTA -->
+    <div class="sticky-cta-bar" id="stickyCta" style="padding-bottom: max(0.8rem, env(safe-area-inset-bottom, 0.8rem));">
+        <div class="sticky-cta-inner">
+            <span class="sticky-label">Faça a sua agora</span>
+            <a href="https://wa.me/5518981925078?text=Ol%C3%A1%2C+quero+fazer+minha+foto+profissional+com+IA%21"
+                target="_blank" rel="noopener" class="sticky-cta-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+                Falar no WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <script>
+        /* ── NAV ── */
+        const header = document.querySelector('.glass-nav');
+        const bttButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+            bttButton.classList.toggle('visible', window.scrollY > 500);
+        });
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('open');
+            document.getElementById('hamburger').classList.toggle('active');
+        }
+        function closeMobileMenu() {
+            document.getElementById('mobileMenu').classList.remove('open');
+            document.getElementById('hamburger').classList.remove('active');
+        }
+
+        /* ── MASONRY ENGINE ── */
+        const grid = document.getElementById('masonryGrid');
+        const GAP = window.innerWidth < 720 ? 6 : 14;
+
+        function getColCount() {
+            const w = grid.offsetWidth;
+            if (w >= 1100) return 4;
+            if (w >= 720) return 3;
+            return 2; /* sempre 2 colunas no mobile, igual Pinterest */
+        }
+
+        function runMasonry() {
+            const cols = getColCount();
+            const gap = grid.offsetWidth < 720 ? 6 : 14;
+            const colW = (grid.offsetWidth - gap * (cols - 1)) / cols;
+            const heights = new Array(cols).fill(0);
+            const visible = [...grid.querySelectorAll('.photo-card:not(.hidden)')];
+
+            visible.forEach(card => {
+                card.style.width = colW + 'px';
+                const shortest = heights.indexOf(Math.min(...heights));
+                card.style.left = shortest * (colW + gap) + 'px';
+                card.style.top = heights[shortest] + 'px';
+                heights[shortest] += card.offsetHeight + gap;
+            });
+
+            grid.style.height = Math.max(...heights) + 'px';
+        }
+
+        /* Run masonry after each image loads */
+        let loadedCount = 0;
+        const allImgs = grid.querySelectorAll('img');
+        allImgs.forEach(img => {
+            const card = img.closest('.photo-card');
+            const onLoad = () => {
+                card.classList.add('loaded');
+                loadedCount++;
+                runMasonry();
+            };
+            if (img.complete) onLoad();
+            else img.addEventListener('load', onLoad);
+        });
+
+        /* Initial layout + resize */
+        runMasonry();
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(runMasonry, 120);
+        });
+
+        /* ── FILTER ── */
+        let activeCategory = 'all';
+        let activeGender = 'all';
+
+        function applyFilters() {
+            grid.querySelectorAll('.photo-card').forEach(card => {
+                const catOk = activeCategory === 'all' || card.dataset.category === activeCategory;
+                const gender = card.dataset.gender;
+                const genderOk = activeGender === 'all' || gender === activeGender || (activeGender !== 'all' && gender === 'casal' ? false : gender === activeGender);
+                card.classList.toggle('hidden', !(catOk && genderOk));
+            });
+            setTimeout(runMasonry, 50);
+        }
+
+        document.querySelectorAll('.filter-btn:not(.gender-btn)').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn:not(.gender-btn)').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeCategory = btn.dataset.filter;
+                applyFilters();
+            });
+        });
+
+        document.querySelectorAll('.gender-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.gender-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeGender = btn.dataset.gender;
+                applyFilters();
+            });
+        });
+
+        /* ── LIGHTBOX ── */
+        let currentIdx = 0;
+        let visibleCards = [];
+
+        function getVisible() {
+            return [...grid.querySelectorAll('.photo-card:not(.hidden)')];
+        }
+
+        function openLightbox(idx) {
+            visibleCards = getVisible();
+            currentIdx = idx;
+            showLightboxImg(currentIdx);
+            document.getElementById('lightbox').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function showLightboxImg(idx) {
+            const card = visibleCards[idx];
+            const img = card.querySelector('img');
+            document.getElementById('lightboxImg').src = img.src;
+            document.getElementById('lightboxImg').alt = img.alt;
+            const label = card.dataset.label || '';
+            const sub = card.dataset.sublabel || '';
+            document.getElementById('lightboxCaption').textContent = label + (sub ? '  —  ' + sub : '');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        grid.querySelectorAll('.photo-card').forEach(card => {
+            card.addEventListener('click', () => {
+                visibleCards = getVisible();
+                openLightbox(visibleCards.indexOf(card));
+            });
+        });
+
+        document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+        document.getElementById('lightboxPrev').addEventListener('click', () => {
+            currentIdx = (currentIdx - 1 + visibleCards.length) % visibleCards.length;
+            showLightboxImg(currentIdx);
+        });
+        document.getElementById('lightboxNext').addEventListener('click', () => {
+            currentIdx = (currentIdx + 1) % visibleCards.length;
+            showLightboxImg(currentIdx);
+        });
+        document.getElementById('lightbox').addEventListener('click', e => {
+            if (e.target === document.getElementById('lightbox')) closeLightbox();
+        });
+        document.addEventListener('keydown', e => {
+            if (!document.getElementById('lightbox').classList.contains('open')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') { currentIdx = (currentIdx - 1 + visibleCards.length) % visibleCards.length; showLightboxImg(currentIdx); }
+            if (e.key === 'ArrowRight') { currentIdx = (currentIdx + 1) % visibleCards.length; showLightboxImg(currentIdx); }
+        });
+
+        /* Touch swipe no lightbox */
+        let touchStartX = 0;
+        document.getElementById('lightbox').addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+        document.getElementById('lightbox').addEventListener('touchend', e => {
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            if (Math.abs(dx) < 40) return;
+            if (dx < 0) { currentIdx = (currentIdx + 1) % visibleCards.length; }
+            else { currentIdx = (currentIdx - 1 + visibleCards.length) % visibleCards.length; }
+            showLightboxImg(currentIdx);
+        });
+    </script>
+</body>
+</html>
