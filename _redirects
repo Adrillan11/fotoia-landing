@@ -1,2 +1,2 @@
-# Redirect raiz do subdomínio PT para a página PT-PT
+/portugal /index-pt.html 200
 /pt /index-pt.html 200
