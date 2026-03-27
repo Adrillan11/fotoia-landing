@@ -24,8 +24,8 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* ── BASE: sem overflow horizontal ── */
-        html, body { overflow-x: hidden; }
+        /* ── BASE ── */
+        body { overflow-x: clip; -webkit-overflow-scrolling: touch; }
 
         /* ── FILTER ── */
         .filters-wrap {
@@ -81,7 +81,7 @@
             box-sizing: border-box;
         }
 
-        #masonryGrid { position: relative; }
+        #masonryGrid { position: relative; touch-action: pan-y; }
 
         /* ── PHOTO CARD ── */
         .photo-card {
@@ -95,12 +95,12 @@
                         opacity 0.3s ease;
             background: #ebebeb;
             -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
         }
 
         .photo-card.hidden {
             opacity: 0;
             pointer-events: none;
-            transform: scale(0.95);
         }
 
         .photo-card:hover {
@@ -314,6 +314,18 @@
             .lightbox-caption { font-size: 0.75rem; }
         }
     </style>
+
+  <!-- TikTok Pixel Code Start -->
+  <script>
+  !function (w, d, t) {
+    w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+  var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+  ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+    ttq.load('D73E8M3C77U5SK5I3BUG');
+    ttq.page();
+  }(window, document, 'ttq');
+  </script>
+  <!-- TikTok Pixel Code End -->
 </head>
 
 <body>
@@ -694,14 +706,14 @@
 
         /* Touch swipe no lightbox */
         let touchStartX = 0;
-        document.getElementById('lightbox').addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+        document.getElementById('lightbox').addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
         document.getElementById('lightbox').addEventListener('touchend', e => {
             const dx = e.changedTouches[0].clientX - touchStartX;
             if (Math.abs(dx) < 40) return;
             if (dx < 0) { currentIdx = (currentIdx + 1) % visibleCards.length; }
             else { currentIdx = (currentIdx - 1 + visibleCards.length) % visibleCards.length; }
             showLightboxImg(currentIdx);
-        });
+        }, { passive: true });
     </script>
 </body>
 </html>
