@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FotoIA by ASGrowHub | Retratos Profissionais com Inteligência Artificial</title>
+    <meta name="description"
+        content="Transforme selfies simples em retratos corporativos de altíssima qualidade. Fotos para LinkedIn, currículo e perfil profissional geradas por IA em até 24h.">
+    <meta name="keywords"
+        content="foto corporativa, retrato profissional, foto gerada por IA, linkedin foto, inteligencia artificial foto">
+    <meta name="author" content="ASGrowHub">
+    <link rel="canonical" href="https://foto.asgrowhub.com" />
+
+    <!-- Open Graph (WhatsApp, LinkedIn, Facebook) -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:url" content="https://foto.asgrowhub.com">
+    <meta property="og:title" content="FotoIA — Sua Nova Imagem Profissional em 24h">
+    <meta property="og:description"
+        content="O que a sua foto de perfil diz sobre você hoje? Tenha fotos de estúdio com qualidade impecável geradas por Inteligência Artificial.">
+    <meta property="og:image" content="https://foto.asgrowhub.com/assets/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FotoIA — Sua Nova Imagem Profissional em 24h">
+    <meta name="twitter:description" content="10 fotos de estúdio profissional por R$97. Sem câmera. Em 24h.">
+    <meta name="twitter:image" content="https://foto.asgrowhub.com/assets/og-image.jpg">
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23C9A84C'/%3E%3Cpath d='M6 11h3l2-3h10l2 3h3a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V13a2 2 0 0 1 2-2z' fill='none' stroke='%23070707' stroke-width='2' stroke-linejoin='round'/%3E%3Ccircle cx='16' cy='18' r='4' fill='none' stroke='%23070707' stroke-width='2'/%3E%3C/svg%3E">
+
+    <!-- Preload Fonts for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background Decorators -->
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div class="glow glow-3"></div>
+
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu" id="mobileMenu">
+        <a href="#solucao" onclick="closeMobileMenu()">A Solução</a>
+        <a href="portfolio.html" onclick="closeMobileMenu()">Portfólio</a>
+        <a href="#tecnologia" onclick="closeMobileMenu()">Tecnologia</a>
+        <a href="#como-funciona" onclick="closeMobileMenu()">Como Funciona</a>
+        <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+        <a href="#contato" onclick="closeMobileMenu()" style="color: var(--accent);">Solicitar Orçamento</a>
+    </nav>
+
+    <header>
+        <nav class="glass-nav">
+            <div class="logo">Foto<span>IA</span></div>
+            <div class="nav-links">
+                <a href="#solucao">A Solução</a>
+                <a href="portfolio.html">Portfólio</a>
+                <a href="#tecnologia">Tecnologia</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contato" class="cta-button-nav">Solicitar Orçamento</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ==========================================
+             HERO — ATTENTION
+             ========================================== -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <div class="badge">✦ O Futuro da Fotografia Chegou</div>
+                <h1>Presença Digital Implacável.<br><span>Sua Nova Imagem Profissional.</span></h1>
+                <p>O que a sua foto de perfil diz sobre você hoje? Líderes de alto nível estão usando Inteligência
+                    Artificial para ter fotos de estúdio com qualidade impecável — sem câmera, sem estúdio, sem
+                    complicação.</p>
+                <div class="hero-actions">
+                    <a href="#contato" class="btn-aprenda">Fazer minha Foto Agora → <span class="icon-circle"></span></a>
+                </div>
+                <div class="pricing-info">
+                    <span class="pricing-old">de R$ 297,00</span>
+                    <h3>por R$ 97,00</h3>
+                    <span style="font-size:0.8rem; color: var(--accent-light); font-weight:600;">10 FOTOS</span>
+                </div>
+                <div class="urgency-badge reveal">
+                    <span class="pulse-dot"></span>
+                    Oferta encerra em breve (Últimas vagas)
+                </div>
+                <div class="social-proof-trust">
+                    Mais de <strong>500+</strong> profissionais já transformaram sua imagem com a ASGrowHub.
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <!-- Original cards -->
+                        <div class="carousel-slide">
+                            <img src="assets/freepik__professional-highresolution-studio-portrait-in-the__22823.png"
+                                alt="Retrato Executivo IA">
+                            <div class="slide-label">Executivo</div>
+                        </div>
+                        <div class="carousel-slide">
+                            alt="Retrato Executivo IA" loading="lazy">
+                            <div class="slide-label">Executivo</div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/freepik__ultrarealistic-studio-portrait-scene-with-a-deep-w__7784.png"
+                                alt="Retrato Corporativo IA" loading="lazy">
+                            <div class="slide-label">Corporativo</div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/freepik__professional-highresolution-studio-portrait-tight-__22826.png"
+                                alt="Antes: Roupas casuais | Depois: Terno executivo" loading="lazy">
+                            <div class="slide-label">Perfil LinkedIn</div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/freepik__a-cinematic-lowangle-portrait-shot-on-a-50mm-lens-__49037.png"
+                                alt="Antes: Selfie de celular | Depois: Estúdio" loading="lazy">
+                            <div class="slide-label">Capa de Revista</div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/freepik__professional-highresolution-studio-portrait-in-the__22823.png"
+                                alt="Retrato Executivo IA" loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/freepik__ultrarealistic-studio-portrait-scene-with-a-deep-w__7784.png"
+                                alt="Retrato Corporativo IA" loading="lazy">
+                            <div class="slide-label">Corporativo</div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/freepik__professional-highresolution-studio-portrait-tight-__22826.png"
+                                alt="Retrato LinkedIn IA" loading="lazy">
+                            <div class="slide-label">Perfil LinkedIn</div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/freepik__a-cinematic-lowangle-portrait-shot-on-a-50mm-lens-__49037.png"
+                                alt="Retrato Capa de Revista IA" loading="lazy">
+                            <div class="slide-label">Capa de Revista</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SOLUTION / BENEFITS — INTEREST (Quebra de Objeção)
+             ========================================== -->
+        <section class="solution" id="solucao">
+            <div class="section-header text-center reveal">
+                <div class="section-label">A Solução</div>
+                <h2>Você provavelmente está pensando:<br><span style="color:var(--text-muted); font-weight:300;">"Mas
+                        vai parecer falso…"</span></h2>
+                <p>É a dúvida de todo profissional que ainda não viu o resultado. Deixa a gente provar que você está
+                    errado — com dados, com lógica e com imagens reais.</p>
+            </div>
+
+
+            <div class="benefits-grid">
+
+                <!-- Objeção 1: Fotos artificiais -->
+                <div class="glass-card benefit-card objection-card reveal reveal-delay-1">
+                    <div class="objection-bubble">
+                        <div class="glass-icon">
+                            <!-- Shield Check (Feather-style) -->
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                <polyline points="9 12 11 14 15 10" />
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="objection-tag">Objeção 01</span>
+                            <p class="objection-q">"As fotos vão parecer artificiais."</p>
+                        </div>
+                    </div>
+                    <div class="objection-answer">
+                        <p>Nossa IA foi treinada com milhões de retratos de estúdio profissional. O resultado tem
+                            iluminação volumétrica real, textura de pele fiel e nitidez de câmera 50mm. <strong
+                                style="color:var(--text-color);">Profissionais de RH de grandes empresas não conseguem
+                                distinguir do original.</strong></p>
+                    </div>
+                </div>
+
+                <!-- Objeção 2: Parecer outra pessoa -->
+                <div class="glass-card benefit-card objection-card reveal reveal-delay-2">
+                    <div class="objection-bubble">
+                        <div class="glass-icon">
+                            <!-- User Circle (Feather-style) -->
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                <circle cx="12" cy="7" r="4" />
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="objection-tag">Objeção 02</span>
+                            <p class="objection-q">"Vou ficar parecendo outra pessoa."</p>
+                        </div>
+                    </div>
+                    <div class="objection-answer">
+                        <p>Ao contrário. Nossa IA mantém suas características únicas — formato do rosto, cor da pele,
+                            traços — e só eleva a <em>qualidade técnica</em> da imagem. <strong
+                                style="color:var(--text-color);">Você, só na melhor versão fotográfica de
+                                si mesmo.</strong></p>
+                    </div>
+                </div>
+
+                <!-- Objeção 3: Fotógrafo real é melhor -->
+                <div class="glass-card benefit-card objection-card reveal reveal-delay-3">
+                    <div class="objection-bubble">
+                        <div class="glass-icon">
+                            <!-- Bar Chart / Value (Feather-style) -->
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="12" y1="1" x2="12" y2="23" />
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="objection-tag">Objeção 03</span>
+                            <p class="objection-q">"Um fotógrafo profissional é melhor."</p>
+                        </div>
+                    </div>
+                    <div class="objection-answer">
+                        <p>Um bom ensaio de estúdio custa entre R$500 e R$1.500 — mais deslocamento, maquiagem e
+                            horas do seu dia. Aqui você tem <strong style="color:var(--accent);">10 fotos de estúdio
+                                por R$97</strong>, sem sair de casa, resultado em 24h. O estúdio
+                            não desapareceu; ele virou digital.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Mini CTA de transição para portfólio -->
+            <div class="text-center reveal" style="margin-top: 4rem;">
+                <p style="font-size:1rem; margin-bottom:1rem;">Prefere ver antes de decidir? Role para baixo.</p>
+                <a href="#portfolio"
+                    style="color: var(--accent); font-weight:600; font-size:1rem; border-bottom: 1px solid var(--accent-border); padding-bottom: 2px;">
+                    Ver resultados reais →
+                </a>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PORTFOLIO — DESIRE (Social Proof)
+             ========================================== -->
+        <section class="portfolio" id="portfolio">
+            <div class="section-header reveal">
+                <div class="section-label">Portfólio</div>
+                <h2>A Imagem que Abre Portas</h2>
+                <p>O nível de realismo que confunde a percepção. Veja resultados reais gerados pela nossa IA:</p>
+            </div>
+
+            <!-- Container com overflow hidden para o efeito Marquee -->
+            <div class="portfolio-marquee-wrapper reveal">
+                <div class="portfolio-marquee-track">
+
+                    <!-- Grupo 1 de Imagens -->
+                    <div class="marquee-group">
+                        <div class="marquee-item">
+                            <div class="portfolio-image-wrapper">
+                                <img src="assets/freepik__professional-highresolution-studio-portrait-tight-__22826.png"
+                                    loading="lazy" alt="Retrato Profissional IA">
+                                <div class="portfolio-overlay">
+                                    <span class="badge tag-before">Selfie Comum</span>
+                                    <span class="badge tag-after">→ IA Studio</span>
+                                </div>
+                            </div>
+                            <div class="portfolio-info">
+                                <h4>Avatar Corporativo</h4>
+                                <p>Linkedin / Currículo</p>
+                            </div>
+                        </div>
+
+                        <div class="marquee-item">
+                            <div class="portfolio-image-wrapper">
+                                <img src="assets/freepik__a-cinematic-lowangle-portrait-shot-on-a-50mm-lens-__49037.png"
+                                    loading="lazy" alt="Retrato Cinematográfico IA">
+                                <div class="portfolio-overlay">
+                                    <span class="badge tag-before">Foto na Rua</span>
+                                    <span class="badge tag-after">→ IA Cinematic</span>
+                                </div>
+                            </div>
+                            <div class="portfolio-info">
+                                <h4>Estilo Executivo</h4>
+                                <p>Apresentações / Palestras</p>
+                            </div>
+                        </div>
+
+                        <div class="marquee-item">
+                            <div class="portfolio-image-wrapper">
+                                <img src="assets/freepik__ultrarealistic-studio-portrait-scene-with-a-deep-w__7784.png"
+                                    loading="lazy" alt="Retrato Ultra-realista IA">
+                                <div class="portfolio-overlay">
+                                    <span class="badge tag-before">Foto Caseira</span>
+                                    <span class="badge tag-after">→ IA Editorial</span>
+                                </div>
+                            </div>
+                            <div class="portfolio-info">
+                                <h4>Perfil de Liderança</h4>
+                                <p>Website / PR</p>
+                            </div>
+                        </div>
+
+                        <div class="marquee-item">
+                            <div class="portfolio-image-wrapper">
+                                <img src="assets/freepik__professional-highresolution-studio-portrait-in-the__22824.png"
+                                    loading="lazy" alt="Retrato Executivo IA">
+                                <div class="portfolio-overlay">
+                                    <span class="badge tag-before">Evento Social</span>
+                                    <span class="badge tag-after">→ IA Premium</span>
+                                </div>
+                            </div>
+                            <div class="portfolio-info">
+                                <h4>Estilo Board Member</h4>
+                                <p>Diretoria / C-Level</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Grupo 2 (Cópia exata para criar o loop invisível) -->
+                    <div class="marquee-group" aria-hidden="true">
+                        <div class="marquee-item">
+                            <div class="portfolio-image-wrapper">
+                                <img src="assets/freepik__professional-highresolution-studio-portrait-tight-__22826.png"
+                                    loading="lazy" alt="Retrato Profissional IA">
+                                <div class="portfolio-overlay">
+                                    <span class="badge tag-before">Selfie Comum</span>
+                                    <span class="badge tag-after">→ IA Studio</span>
+                                </div>
+                            </div>
+                            <div class="portfolio-info">
+                                <h4>Avatar Corporativo</h4>
+                                <p>Linkedin / Currículo</p>
+                            </div>
+                        </div>
+
+                        <div class="marquee-item">
+                            <div class="portfolio-image-wrapper">
+                                <img src="assets/freepik__a-cinematic-lowangle-portrait-shot-on-a-50mm-lens-__49037.png"
+                                    loading="lazy" alt="Retrato Cinematográfico IA">
+                                <div class="portfolio-overlay">
+                                    <span class="badge tag-before">Foto na Rua</span>
+                                    <span class="badge tag-after">→ IA Cinematic</span>
+                                </div>
+                            </div>
+                            <div class="portfolio-info">
+                                <h4>Estilo Executivo</h4>
+                                <p>Apresentações / Palestras</p>
+                            </div>
+                        </div>
+
+                        <div class="marquee-item">
+                            <div class="portfolio-image-wrapper">
+                                <img src="assets/freepik__ultrarealistic-studio-portrait-scene-with-a-deep-w__7784.png"
+                                    loading="lazy" alt="Retrato Ultra-realista IA">
+                                <div class="portfolio-overlay">
+                                    <span class="badge tag-before">Foto Caseira</span>
+                                    <span class="badge tag-after">→ IA Editorial</span>
+                                </div>
+                            </div>
+                            <div class="portfolio-info">
+                                <h4>Perfil de Liderança</h4>
+                                <p>Website / PR</p>
+                            </div>
+                        </div>
+
+                        <div class="marquee-item">
+                            <div class="portfolio-image-wrapper">
+                                <img src="assets/freepik__professional-highresolution-studio-portrait-in-the__22824.png"
+                                    loading="lazy" alt="Retrato Executivo IA">
+                                <div class="portfolio-overlay">
+                                    <span class="badge tag-before">Evento Social</span>
+                                    <span class="badge tag-after">→ IA Premium</span>
+                                </div>
+                            </div>
+                            <div class="portfolio-info">
+                                <h4>Estilo Board Member</h4>
+                                <p>Diretoria / C-Level</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             AI AUTHORITY — TECHNOLOGY TRUST BLOCK
+             ========================================== -->
+        <section class="ai-authority" id="tecnologia">
+            <div class="section-header text-center reveal">
+                <div class="section-label">Tecnologia</div>
+                <h2>Não é qualquer IA.<br><span class="gradient-text">Foi desenvolvida para isso.</span></h2>
+                <p style="max-width: 600px; margin: 0 auto;">
+                    Aplicativos de filtro usam IA genérica. Nós treinamos um modelo próprio de geração de retratos —
+                    com foco exclusivo em <strong style="color:var(--text-color);">fotografia profissional de pessoas
+                        reais.</strong>
+                </p>
+            </div>
+
+            <div class="authority-grid reveal">
+
+                <div class="authority-card">
+                    <div class="authority-icon">
+                        <!-- Brain / Neural Network icon -->
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-1.66z" />
+                            <path
+                                d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-1.66z" />
+                        </svg>
+                    </div>
+                    <div class="authority-text">
+                        <h4>Modelo Fine-Tuned para Retratos</h4>
+                        <p>Não usamos ChatGPT, não usamos filtros de app. Nossa IA foi treinada especificamente em
+                            decenas de milhares de retratos profissionais de estúdio para entender luz, sombra, textura
+                            de pele e composição.</p>
+                    </div>
+                </div>
+
+                <div class="authority-card">
+                    <div class="authority-icon">
+                        <!-- Fingerprint / Identity icon -->
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 12C2 6.5 6.5 2 12 2a10 10 0 0 1 8 4" />
+                            <path d="M5 19.5C5.5 18 6 15 6 12c0-3.31 2.69-6 6-6s6 2.69 6 6c0 1 0 3-1 4.5" />
+                            <path d="M12 6C8.69 6 6 8.69 6 12c0 1.5-.5 4-1.5 6.5" />
+                            <path d="M12 6c3.31 0 6 2.69 6 6 0 2 .5 4.5 2 6.5" />
+                            <path d="M12 12c0 3-1 6-2 8" />
+                            <path d="M12 12c0 3 1 6 2 8" />
+                        </svg>
+                    </div>
+                    <div class="authority-text">
+                        <h4>Preservação de Identidade (IPM)</h4>
+                        <p>Nossa arquitetura usa <em>Identity Preservation Mapping</em> — um processo que mapeia 47
+                            pontos faciais antes de gerar qualquer imagem. Seu rosto, sua expressão, sua identidade. A
+                            IA não substitui: ela eleva.</p>
+                    </div>
+                </div>
+
+                <div class="authority-card">
+                    <div class="authority-icon">
+                        <!-- Shield / Quality icon -->
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            <polyline points="9 12 11 14 15 10" />
+                        </svg>
+                    </div>
+                    <div class="authority-text">
+                        <h4>Curadoria Humana em Cada Entrega</h4>
+                        <p>Cada lote de fotos passa por uma etapa de revisão antes de ser entregue a você. Não é só
+                            apertar um botão: é um processo de qualidade com padrão de estúdio profissional — garantido
+                            ou refazemos.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Distintivo de rodapé da seção -->
+            <div class="authority-footer reveal">
+                <div class="authority-stat">
+                    <span class="stat-number">47</span>
+                    <span class="stat-label">Pontos faciais mapeados por foto</span>
+                </div>
+                <div class="authority-divider"></div>
+                <div class="authority-stat">
+                    <span class="stat-number">98%</span>
+                    <span class="stat-label">de aprovação dos clientes</span>
+                </div>
+                <div class="authority-divider"></div>
+                <div class="authority-stat">
+                    <span class="stat-number">24h</span>
+                    <span class="stat-label">do envio à entrega</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             HOW IT WORKS — 3 STEPS
+             ========================================== -->
+
+        <section class="how-it-works" id="como-funciona">
+            <div class="section-header text-center reveal" style="max-width:1400px; margin: 0 auto 4rem;">
+                <div class="section-label">Processo</div>
+                <h2>Simples assim. 3 passos.</h2>
+                <p>Sem câmera, sem estúdio. Só você e o resultado.</p>
+            </div>
+
+            <div class="steps-grid" style="max-width:1200px; margin:0 auto;">
+                <div class="step-card reveal reveal-delay-1">
+                    <div class="step-number">1</div>
+                    <h3>Envie suas Selfies</h3>
+                    <p>Tire de 10 a 15 fotos simples com seu celular, em boa iluminação. Nada especial necessário.</p>
+                </div>
+                <div class="step-card reveal reveal-delay-2">
+                    <div class="step-number">2</div>
+                    <h3>Nossa IA Trabalha</h3>
+                    <p>Nossa Inteligência Artificial treinada processa suas fotos e gera retratos com qualidade de
+                        estúdio profissional.</p>
+                </div>
+                <div class="step-card reveal reveal-delay-3">
+                    <div class="step-number">3</div>
+                    <h3>Receba em 24h</h3>
+                    <p>Em até 24 horas você recebe 10 retratos de alto padrão, prontos para usar no LinkedIn, Instagram
+                        e onde quiser.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             TESTIMONIALS — TRUST
+             ========================================== -->
+        <section id="depoimentos">
+            <div class="section-header text-center reveal">
+                <div class="section-label">Depoimentos</div>
+                <h2>O Que Dizem Sobre Nós</h2>
+                <p>Mais de 500 profissionais já elevaram sua imagem com a ASGrowHub.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="glass-card testimonial-card reveal reveal-delay-1">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Fiquei impressionada com o resultado. Parece foto de magazine de
+                        verdade. Atualizei meu LinkedIn e os recruiter começaram a me chamar em dois dias."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar initials-avatar" style="--av-color:#8B5E9E;">CR</div>
+                        <div>
+                            <span class="author-name">Camila Rodrigues</span>
+                            <span class="author-role">Diretora de Marketing • São Paulo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card testimonial-card reveal reveal-delay-2">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Investi R$97 e ganhei uma imagem que antes me custaria R$800+ num
+                        estúdio. Processo simples, resultado espetacular. Vale demais."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar initials-avatar" style="--av-color:#3A7BD5;">RM</div>
+                        <div>
+                            <span class="author-name">Rafael Mendes</span>
+                            <span class="author-role">Fundador de Startup • Belo Horizonte</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card testimonial-card reveal reveal-delay-3">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Minha equipe não acreditou que eram fotos geradas por IA. Usei para o
+                        meu livro e para o meu site. Qualidade excepcional, resultado em menos de 24h."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar initials-avatar" style="--av-color:#2E8B72;">FC</div>
+                        <div>
+                            <span class="author-name">Fernanda Costa</span>
+                            <span class="author-role">Coach Executiva • Rio de Janeiro</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             FINAL CTA — ACTION
+             ========================================== -->
+
+        <section class="contact" id="contato">
+            <div class="glass-card cta-box reveal">
+                <div class="section-label">Oferta por Tempo Limitado</div>
+                <h2>Aja agora.<br>Sua imagem não pode esperar.</h2>
+                <p>Envie de 10 a 15 selfies comuns agora mesmo e receba 10 retratos profissionais que vão alavancar
+                    suas oportunidades. Em até 24 horas.</p>
+
+                <div class="pricing-info" style="justify-content:center; margin-bottom: 2rem;">
+                    <span class="pricing-old">de R$ 297,00</span>
+                    <h3>por R$ 97,00</h3>
+                </div>
+
+                <a href="https://wa.me/5518981925078?text=Ol%C3%A1%2C+quero+fazer+minha+foto+profissional+com+IA%21"
+                    target="_blank" rel="noopener" class="cta-button-whatsapp full-width">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    Solicitar via WhatsApp
+                </a>
+                <p class="cta-sub-note">🔒 Resposta em até 2 horas · Processo 100% seguro e digital · ASGrowHub</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==========================================
+             FAQ — DÚVIDAS FREQUENTES
+             ========================================== -->
+    <section class="faq-section" id="faq">
+        <div class="section-header text-center reveal">
+            <div class="section-label">FAQ</div>
+            <h2>Ainda com dúvidas?<br><span style="color:var(--text-muted); font-weight:300;">Temos
+                    respostas.</span></h2>
+            <p>As perguntas mais comuns de quem ainda não clicou no botão — mas vai.</p>
+        </div>
+
+        <div class="faq-list reveal">
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>As fotos realmente parecem profissionais ou dá pra perceber que é IA?</span>
+                    <div class="faq-icon">
+                        <svg viewBox="0 0 24 24">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-answer">
+                    <p>Nossos clientes frequentemente recebem elogios de colegas que não sabem que é IA — e
+                        perguntam qual fotógrafo foi contratado. O nível de detalhe da nossa tecnologia (textura de
+                        pele, iluminação direcional, bokeh de lente) é treinado especificamente para replicar o
+                        padrão de estúdio profissional. Role até o portfólio acima e tire sua própria conclusão.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Vou continuar parecendo eu mesmo ou a IA vai alterar meu rosto?</span>
+                    <div class="faq-icon">
+                        <svg viewBox="0 0 24 24">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-answer">
+                    <p>Você continua 100% você — mesma estrutura facial, tom de pele, olhos, expressão. Nossa
+                        tecnologia de <em>Identity Preservation Mapping</em> mapeia 47 pontos do seu rosto antes de
+                        gerar qualquer imagem. O que muda: a qualidade da luz, o fundo, a composição e o acabamento.
+                        É você na melhor versão fotográfica possível.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Que tipo de selfies preciso enviar? Precisa de câmera profissional?</span>
+                    <div class="faq-icon">
+                        <svg viewBox="0 0 24 24">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-answer">
+                    <p>Não. Qualquer celular serve. Você precisa de 10 a 15 fotos simples: algumas de frente,
+                        algumas de ângulos levemente laterais, em boa iluminação natural (perto de uma janela
+                        funciona perfeitamente). Nada de maquiagem especial, nada de fundo específico. Após a compra
+                        você recebe um guia rápido com todos os detalhes.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Em quanto tempo recebo as fotos?</span>
+                    <div class="faq-icon">
+                        <svg viewBox="0 0 24 24">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-answer">
+                    <p>Em até <strong>24 horas úteis</strong> após o envio das suas selfies. Na maioria dos pedidos,
+                        entregamos em menos tempo. Você recebe um link para baixar as fotos diretamente no seu
+                        e-mail — sem aplicativo, sem cadastro complicado.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>E se eu não gostar das fotos? Tem garantia?</span>
+                    <div class="faq-icon">
+                        <svg viewBox="0 0 24 24">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-answer">
+                    <p>Sim. Se as fotos entregues não estiverem no padrão apresentado no portfólio — seja por
+                        qualidade, semelhança ou qualquer outro motivo — refazemos sem custo adicional. Nossa taxa
+                        de aprovação é de 98%, mas <strong>garantimos</strong> os 2% restantes também.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Posso usar as fotos comercialmente? Elas são minhas?</span>
+                    <div class="faq-icon">
+                        <svg viewBox="0 0 24 24">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-answer">
+                    <p>Completamente suas. Ao receber as fotos, você tem licença irrestrita para uso comercial e
+                        pessoal: LinkedIn, site, apresentações, livros, redes sociais, materiais de imprensa — sem
+                        limitação. Seus dados de selfie são deletados do nosso servidor após a entrega.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Por que R$97 e não de graça ou mais barato?</span>
+                    <div class="faq-icon">
+                        <svg viewBox="0 0 24 24">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-answer">
+                    <p>Porque existem custos reais: infraestrutura de IA de alta performance, curadoria humana de
+                        cada entrega e suporte dedicado. Ferramentas genéricas e gratuitas entregam resultado
+                        genérico e inconsistente. Nós entregamos um produto que você vai orgulhosamente colocar no
+                        seu LinkedIn — e isso tem valor. Compare com R$500–R$1.500 de um ensaio fotográfico
+                        tradicional; a conta fecha facilmente.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <footer class="glass-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">Foto<span>IA</span></div>
+                <span class="brand-sub">by ASGrowHub · foto.asgrowhub.com</span>
+            </div>
+            <p style="font-size:0.85rem; margin:0;">
+                &copy; 2026 ASGrowHub. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top" id="backToTop" aria-label="Voltar ao início">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+    </a>
+
+    <!-- Interactivity Script -->
+    <script>
+        // Sticky Header Change on Scroll
+        const header = document.querySelector('.glass-nav');
+        const bttButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            // Back to Top Button Visibility
+            if (window.scrollY > 500) {
+                bttButton.classList.add('visible');
+            } else {
+                bttButton.classList.remove('visible');
+            }
+        });
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const hamburger = document.getElementById('hamburger');
+            menu.classList.toggle('open');
+            hamburger.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const hamburger = document.getElementById('hamburger');
+            menu.classList.remove('open');
+            hamburger.classList.remove('active');
+        }
+
+        /* FAQ Toggle */
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+                // Close all others
+                document.querySelectorAll('.faq-question').forEach(btn => {
+                    btn.setAttribute('aria-expanded', 'false');
+                    btn.nextElementSibling.style.maxHeight = null;
+                });
+
+                if (!isExpanded) {
+                    button.setAttribute('aria-expanded', 'true');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                }
+            });
+        });
+
+        /* Scroll Reveal Strategy */
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Stop observing once revealed
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+
+    <!-- =============================================
+         STICKY MOBILE CTA BAR
+         ============================================= -->
+    <div class="sticky-cta-bar" id="stickyCta">
+        <div class="sticky-cta-inner">
+            <div class="sticky-cta-text">
+                <span class="sticky-price">R$ 97</span>
+                <span class="sticky-label" style="display:inline-flex; align-items:center; gap:6px;">
+                    <span class="pulse-dot" style="width:6px; height:6px;"></span>
+                    Últimas vagas hoje
+                </span>
+            </div>
+            <a href="https://wa.me/5518981925078?text=Ol%C3%A1%2C+quero+fazer+minha+foto+profissional+com+IA%21"
+                target="_blank" rel="noopener" class="sticky-cta-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+                Quero Agora
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>
