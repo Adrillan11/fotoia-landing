@@ -27,25 +27,34 @@
   <link rel="icon"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23B7CC53'/%3E%3Cpath d='M6 11h3l2-3h10l2 3h3a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V13a2 2 0 0 1 2-2z' fill='none' stroke='%23070707' stroke-width='2' stroke-linejoin='round'/%3E%3Ccircle cx='16' cy='18' r='4' fill='none' stroke='%23070707' stroke-width='2'/%3E%3C/svg%3E">
 
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-NWM44LLB');</script>
+  <!-- Google Tag Manager (deferred) -->
+  <script>
+  window.addEventListener('load', function() {
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NWM44LLB');
+  });
+  </script>
   <!-- End Google Tag Manager -->
 
-  <!-- TikTok Pixel Code Start -->
+  <!-- TikTok Pixel Code (deferred) -->
   <script>
-  !function (w, d, t) {
-    w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
-  var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
-  ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
-    ttq.load('D73E8M3C77U5SK5I3BUG');
-    ttq.page();
-  }(window, document, 'ttq');
+  window.addEventListener('load', function() {
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+      var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+      ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+      ttq.load('D73E8M3C77U5SK5I3BUG');
+      ttq.page();
+    }(window, document, 'ttq');
+  });
   </script>
   <!-- TikTok Pixel Code End -->
+
+  <!-- Preload LCP image -->
+  <link rel="preload" as="image" href="assets/freepik__professional-highresolution-studio-portrait-in-the__22823.webp" type="image/webp">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -455,54 +464,54 @@
         <div class="carousel-container" aria-label="Exemplos de retratos profissionais gerados por IA" role="img">
           <div class="carousel-track">
             <div class="carousel-slide">
-              <img src="assets/freepik__professional-highresolution-studio-portrait-in-the__22823.png"
-                alt="Retrato Executivo gerado por IA" loading="eager">
+              <img src="assets/freepik__professional-highresolution-studio-portrait-in-the__22823.webp"
+                alt="Retrato Executivo gerado por IA" loading="eager" fetchpriority="high" width="1200" height="1500" decoding="async">
               <div class="slide-label" aria-hidden="true">Executivo</div>
             </div>
             <div class="carousel-slide">
-              <img src="assets/freepik__professional-highresolution-studio-portrait-in-the__22825.png"
+              <img src="assets/freepik__professional-highresolution-studio-portrait-in-the__22825.webp"
                 alt="Retrato Executivo gerado por IA" loading="lazy">
               <div class="slide-label" aria-hidden="true">Executivo</div>
             </div>
             <div class="carousel-slide">
-              <img src="assets/freepik__ultrarealistic-studio-portrait-scene-with-a-deep-w__7784.png"
+              <img src="assets/freepik__ultrarealistic-studio-portrait-scene-with-a-deep-w__7784.webp"
                 alt="Retrato Corporativo gerado por IA" loading="lazy">
               <div class="slide-label" aria-hidden="true">Corporativo</div>
             </div>
             <div class="carousel-slide">
-              <img src="assets/freepik__professional-highresolution-studio-portrait-tight-__22826.png"
+              <img src="assets/freepik__professional-highresolution-studio-portrait-tight-__22826.webp"
                 alt="Retrato para perfil LinkedIn gerado por IA" loading="lazy">
               <div class="slide-label" aria-hidden="true">Perfil LinkedIn</div>
             </div>
             <div class="carousel-slide">
-              <img src="assets/freepik__a-cinematic-lowangle-portrait-shot-on-a-50mm-lens-__49037.png"
+              <img src="assets/freepik__a-cinematic-lowangle-portrait-shot-on-a-50mm-lens-__49037.webp"
                 alt="Retrato estilo capa de revista gerado por IA" loading="lazy">
               <div class="slide-label" aria-hidden="true">Capa de Revista</div>
             </div>
             <div class="carousel-slide">
-              <img src="assets/freepik__professional-highresolution-studio-portrait-in-the__22824.png"
+              <img src="assets/freepik__professional-highresolution-studio-portrait-in-the__22824.webp"
                 alt="Retrato premium gerado por IA" loading="lazy">
               <div class="slide-label" aria-hidden="true">Board Member</div>
             </div>
             <!-- Duplicatas para loop infinito -->
             <div class="carousel-slide" aria-hidden="true">
-              <img src="assets/freepik__professional-highresolution-studio-portrait-in-the__22823.png" alt="" loading="lazy">
+              <img src="assets/freepik__professional-highresolution-studio-portrait-in-the__22823.webp" alt="" loading="lazy">
               <div class="slide-label">Executivo</div>
             </div>
             <div class="carousel-slide" aria-hidden="true">
-              <img src="assets/freepik__ultrarealistic-studio-portrait-scene-with-a-deep-w__7784.png" alt="" loading="lazy">
+              <img src="assets/freepik__ultrarealistic-studio-portrait-scene-with-a-deep-w__7784.webp" alt="" loading="lazy">
               <div class="slide-label">Corporativo</div>
             </div>
             <div class="carousel-slide" aria-hidden="true">
-              <img src="assets/freepik__professional-highresolution-studio-portrait-tight-__22826.png" alt="" loading="lazy">
+              <img src="assets/freepik__professional-highresolution-studio-portrait-tight-__22826.webp" alt="" loading="lazy">
               <div class="slide-label">Perfil LinkedIn</div>
             </div>
             <div class="carousel-slide" aria-hidden="true">
-              <img src="assets/freepik__a-cinematic-lowangle-portrait-shot-on-a-50mm-lens-__49037.png" alt="" loading="lazy">
+              <img src="assets/freepik__a-cinematic-lowangle-portrait-shot-on-a-50mm-lens-__49037.webp" alt="" loading="lazy">
               <div class="slide-label">Capa de Revista</div>
             </div>
             <div class="carousel-slide" aria-hidden="true">
-              <img src="assets/freepik__professional-highresolution-studio-portrait-in-the__22824.png" alt="" loading="lazy">
+              <img src="assets/freepik__professional-highresolution-studio-portrait-in-the__22824.webp" alt="" loading="lazy">
               <div class="slide-label">Board Member</div>
             </div>
           </div>
@@ -620,28 +629,28 @@
           <div class="marquee-group">
             <div class="marquee-item">
               <div class="portfolio-image-wrapper">
-                <img src="assets/freepik__professional-highresolution-studio-portrait-tight-__22826.png" loading="lazy" alt="Retrato corporativo gerado por IA">
+                <img src="assets/freepik__professional-highresolution-studio-portrait-tight-__22826.webp" loading="lazy" alt="Retrato corporativo gerado por IA">
                 <div class="portfolio-overlay" aria-hidden="true"><span class="tag-before">Selfie Comum</span><span class="tag-after">→ IA Studio</span></div>
               </div>
               <div class="portfolio-info"><h4>Avatar Corporativo</h4><p>LinkedIn / Currículo</p></div>
             </div>
             <div class="marquee-item">
               <div class="portfolio-image-wrapper">
-                <img src="assets/freepik__a-cinematic-lowangle-portrait-shot-on-a-50mm-lens-__49037.png" loading="lazy" alt="Retrato cinematográfico gerado por IA">
+                <img src="assets/freepik__a-cinematic-lowangle-portrait-shot-on-a-50mm-lens-__49037.webp" loading="lazy" alt="Retrato cinematográfico gerado por IA">
                 <div class="portfolio-overlay" aria-hidden="true"><span class="tag-before">Foto na Rua</span><span class="tag-after">→ IA Cinematic</span></div>
               </div>
               <div class="portfolio-info"><h4>Estilo Executivo</h4><p>Apresentações / Palestras</p></div>
             </div>
             <div class="marquee-item">
               <div class="portfolio-image-wrapper">
-                <img src="assets/freepik__ultrarealistic-studio-portrait-scene-with-a-deep-w__7784.png" loading="lazy" alt="Retrato editorial gerado por IA">
+                <img src="assets/freepik__ultrarealistic-studio-portrait-scene-with-a-deep-w__7784.webp" loading="lazy" alt="Retrato editorial gerado por IA">
                 <div class="portfolio-overlay" aria-hidden="true"><span class="tag-before">Foto Caseira</span><span class="tag-after">→ IA Editorial</span></div>
               </div>
               <div class="portfolio-info"><h4>Perfil de Liderança</h4><p>Website / PR</p></div>
             </div>
             <div class="marquee-item">
               <div class="portfolio-image-wrapper">
-                <img src="assets/freepik__professional-highresolution-studio-portrait-in-the__22824.png" loading="lazy" alt="Retrato premium gerado por IA">
+                <img src="assets/freepik__professional-highresolution-studio-portrait-in-the__22824.webp" loading="lazy" alt="Retrato premium gerado por IA">
                 <div class="portfolio-overlay" aria-hidden="true"><span class="tag-before">Evento Social</span><span class="tag-after">→ IA Premium</span></div>
               </div>
               <div class="portfolio-info"><h4>Estilo Board Member</h4><p>Diretoria / C-Level</p></div>
@@ -650,28 +659,28 @@
           <div class="marquee-group" aria-hidden="true">
             <div class="marquee-item">
               <div class="portfolio-image-wrapper">
-                <img src="assets/freepik__professional-highresolution-studio-portrait-tight-__22826.png" loading="lazy" alt="">
+                <img src="assets/freepik__professional-highresolution-studio-portrait-tight-__22826.webp" loading="lazy" alt="">
                 <div class="portfolio-overlay"><span class="tag-before">Selfie Comum</span><span class="tag-after">→ IA Studio</span></div>
               </div>
               <div class="portfolio-info"><h4>Avatar Corporativo</h4><p>LinkedIn / Currículo</p></div>
             </div>
             <div class="marquee-item">
               <div class="portfolio-image-wrapper">
-                <img src="assets/freepik__a-cinematic-lowangle-portrait-shot-on-a-50mm-lens-__49037.png" loading="lazy" alt="">
+                <img src="assets/freepik__a-cinematic-lowangle-portrait-shot-on-a-50mm-lens-__49037.webp" loading="lazy" alt="">
                 <div class="portfolio-overlay"><span class="tag-before">Foto na Rua</span><span class="tag-after">→ IA Cinematic</span></div>
               </div>
               <div class="portfolio-info"><h4>Estilo Executivo</h4><p>Apresentações / Palestras</p></div>
             </div>
             <div class="marquee-item">
               <div class="portfolio-image-wrapper">
-                <img src="assets/freepik__ultrarealistic-studio-portrait-scene-with-a-deep-w__7784.png" loading="lazy" alt="">
+                <img src="assets/freepik__ultrarealistic-studio-portrait-scene-with-a-deep-w__7784.webp" loading="lazy" alt="">
                 <div class="portfolio-overlay"><span class="tag-before">Foto Caseira</span><span class="tag-after">→ IA Editorial</span></div>
               </div>
               <div class="portfolio-info"><h4>Perfil de Liderança</h4><p>Website / PR</p></div>
             </div>
             <div class="marquee-item">
               <div class="portfolio-image-wrapper">
-                <img src="assets/freepik__professional-highresolution-studio-portrait-in-the__22824.png" loading="lazy" alt="">
+                <img src="assets/freepik__professional-highresolution-studio-portrait-in-the__22824.webp" loading="lazy" alt="">
                 <div class="portfolio-overlay"><span class="tag-before">Evento Social</span><span class="tag-after">→ IA Premium</span></div>
               </div>
               <div class="portfolio-info"><h4>Estilo Board Member</h4><p>Diretoria / C-Level</p></div>
